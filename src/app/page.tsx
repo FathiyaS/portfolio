@@ -1,103 +1,288 @@
-import Image from "next/image";
+// app/page.tsx
+'use client'
 
-export default function Home() {
+import { useState, useEffect } from 'react'
+
+export default function Portfolio() {
+  const [typingText, setTypingText] = useState<string>('')
+  const [textIndex, setTextIndex] = useState<number>(0)
+  const [charIndex, setCharIndex] = useState<number>(0)
+  const [isDeleting, setIsDeleting] = useState<boolean>(false)
+
+  const texts: string[] = ['Web Developer', 'Designer', 'Problem Solver', 'Creative Thinker']
+
+  useEffect(() => {
+    const typeInterval = setTimeout(() => {
+      const currentText = texts[textIndex]
+      
+      if (isDeleting) {
+        setTypingText(currentText.substring(0, charIndex - 1))
+        setCharIndex(prev => prev - 1)
+      } else {
+        setTypingText(currentText.substring(0, charIndex + 1))
+        setCharIndex(prev => prev + 1)
+      }
+
+      if (!isDeleting && charIndex === currentText.length) {
+        setTimeout(() => setIsDeleting(true), 2000)
+      } else if (isDeleting && charIndex === 0) {
+        setIsDeleting(false)
+        setTextIndex((prev) => (prev + 1) % texts.length)
+      }
+    }, isDeleting ? 50 : 100)
+
+    return () => clearTimeout(typeInterval)
+  }, [charIndex, isDeleting, textIndex, texts])
+
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string): void => {
+    e.preventDefault()
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+
+  interface WorkItem {
+    number: string
+    title: string
+    description: string
+    tags: string[]
+  }
+
+  const workItems: WorkItem[] = [
+    {
+      number: '01',
+      title: 'E-Commerce Platform',
+      description: 'Full-stack e-commerce solution dengan payment gateway integration dan real-time inventory management.',
+      tags: ['Next.js', 'TypeScript', 'Stripe']
+    },
+    {
+      number: '02',
+      title: 'Task Management App',
+      description: 'Collaborative task management application dengan real-time updates dan team collaboration features.',
+      tags: ['React', 'Node.js', 'MongoDB']
+    },
+    {
+      number: '03',
+      title: 'Portfolio Generator',
+      description: 'Automated portfolio generator tool yang membantu developers membuat portfolio website dengan cepat.',
+      tags: ['Next.js', 'Tailwind', 'MDX']
+    }
+  ]
+
+  interface SkillCategory {
+    title: string
+    skills: string[]
+  }
+
+  const skillCategories: SkillCategory[] = [
+    {
+      title: 'Frontend Development',
+      skills: ['HTML5 & CSS3', 'JavaScript ES6+', 'React.js & Next.js', 'TypeScript', 'Tailwind CSS', 'Responsive Design']
+    },
+    {
+      title: 'Backend Development',
+      skills: ['Node.js', 'Express.js', 'MongoDB', 'PostgreSQL', 'REST API', 'GraphQL']
+    },
+    {
+      title: 'Tools & Others',
+      skills: ['Git & GitHub', 'VS Code', 'Figma', 'Postman', 'Docker', 'Vercel']
+    }
+  ]
+
+  interface ContactButton {
+    icon: string
+    text: string
+    href: string
+  }
+
+  const contactButtons: ContactButton[] = [
+    { icon: '💼', text: 'LinkedIn', href: 'https://linkedin.com/in/username' },
+    { icon: '💻', text: 'GitHub', href: 'https://github.com/username' },
+    { icon: '✉️', text: 'Email', href: 'mailto:email@example.com' }
+  ]
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="portfolio-container">
+      {/* Navigation */}
+      <nav className="nav">
+        <div className="nav-container">
+          <div className="nav-logo">Portfolio</div>
+          <ul className="nav-menu">
+            <li><a href="#introduction" onClick={(e) => scrollToSection(e, 'introduction')}>Home</a></li>
+            <li><a href="#work" onClick={(e) => scrollToSection(e, 'work')}>Work</a></li>
+            <li><a href="#skills" onClick={(e) => scrollToSection(e, 'skills')}>Skills</a></li>
+            <li><a href="#about" onClick={(e) => scrollToSection(e, 'about')}>About</a></li>
+          </ul>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </nav>
+
+      {/* Introduction Section */}
+      <section id="introduction" className="section intro-section">
+        <div className="container-split">
+          <div className="intro-left">
+            <div className="intro-badge">Welcome 👋</div>
+            <h1 className="intro-title">
+              Hi, I'm <span className="highlight">Nama Anda</span>
+            </h1>
+            <p className="intro-subtitle">
+              <span className="typing-text">{typingText}</span>
+            </p>
+            <p className="intro-location">📍 Surakarta, Central Java, Indonesia</p>
+            <div className="intro-buttons">
+              <a href="#work" onClick={(e) => scrollToSection(e, 'work')} className="btn btn-primary">
+                View My Work
+              </a>
+              <a href="#about" onClick={(e) => scrollToSection(e, 'about')} className="btn btn-secondary">
+                Contact Me
+              </a>
+            </div>
+          </div>
+          <div className="intro-right">
+            <div className="intro-image-container">
+              <div className="intro-image">
+                <div className="avatar-large">👨‍💻</div>
+              </div>
+              <div className="floating-card card-1">
+                <span className="card-icon">💡</span>
+                <span className="card-text">Creative</span>
+              </div>
+              <div className="floating-card card-2">
+                <span className="card-icon">⚡</span>
+                <span className="card-text">Fast</span>
+              </div>
+              <div className="floating-card card-3">
+                <span className="card-icon">🎯</span>
+                <span className="card-text">Precise</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Work Section */}
+      <section id="work" className="section work-section">
+        <div className="container-full">
+          <div className="section-header">
+            <h2 className="section-title">Featured Work</h2>
+            <p className="section-description">Some of my recent projects</p>
+          </div>
+          <div className="work-grid">
+            {workItems.map((item, index) => (
+              <div key={index} className="work-card">
+                <div className="work-number">{item.number}</div>
+                <h3 className="work-title">{item.title}</h3>
+                <p className="work-description">{item.description}</p>
+                <div className="work-tags">
+                  {item.tags.map((tag, tagIndex) => (
+                    <span key={tagIndex} className="work-tag">{tag}</span>
+                  ))}
+                </div>
+                <a href="#" className="work-link">
+                  View Project →
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="section skills-section">
+        <div className="container-split">
+          <div className="skills-left">
+            <h2 className="section-title">Skills & Expertise</h2>
+            <p className="section-description">
+              Saya memiliki pengalaman dalam berbagai teknologi modern untuk membangun aplikasi web yang scalable dan performant.
+            </p>
+            <div className="skills-stats">
+              <div className="stat-item">
+                <div className="stat-number">3+</div>
+                <div className="stat-label">Years Experience</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-number">20+</div>
+                <div className="stat-label">Projects Completed</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-number">10+</div>
+                <div className="stat-label">Happy Clients</div>
+              </div>
+            </div>
+          </div>
+          <div className="skills-right">
+            {skillCategories.map((category, index) => (
+              <div key={index} className="skill-category">
+                <h3 className="skill-category-title">{category.title}</h3>
+                <div className="skill-list">
+                  {category.skills.map((skill, skillIndex) => (
+                    <div key={skillIndex} className="skill-item">
+                      <span className="skill-bullet">•</span>
+                      <span className="skill-name">{skill}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="section about-section">
+        <div className="container-full">
+          <div className="about-content">
+            <div className="about-left">
+              <h2 className="section-title">About Me</h2>
+              <p className="about-text">
+                Saya adalah seorang web developer yang passionate dalam menciptakan website yang menarik dan fungsional. 
+                Dengan pengalaman dalam berbagai teknologi modern, saya selalu berusaha untuk terus belajar dan berkembang 
+                dalam dunia teknologi.
+              </p>
+              <p className="about-text">
+                Saya senang bekerja dalam tim dan menghadapi tantangan baru setiap harinya. Mari terhubung dan berkolaborasi 
+                untuk menciptakan sesuatu yang luar biasa! 🚀
+              </p>
+              <div className="contact-buttons">
+                {contactButtons.map((button, index) => (
+                  <a 
+                    key={index}
+                    href={button.href} 
+                    target={button.text !== 'Email' ? '_blank' : undefined}
+                    rel={button.text !== 'Email' ? 'noopener noreferrer' : undefined}
+                    className="contact-btn"
+                  >
+                    <span className="contact-icon">{button.icon}</span>
+                    <span>{button.text}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+            <div className="about-right">
+              <div className="about-card">
+                <div className="about-card-icon">📧</div>
+                <h3>Let's Work Together</h3>
+                <p>I'm available for freelance projects and full-time opportunities.</p>
+              </div>
+              <div className="about-card">
+                <div className="about-card-icon">🌍</div>
+                <h3>Based in Indonesia</h3>
+                <p>Working remotely with clients worldwide.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="footer">
+        <div className="container-full">
+          <div className="footer-content">
+            <p>© 2024 Nama Anda. All rights reserved.</p>
+            <p>Built with Next.js & TypeScript</p>
+          </div>
+        </div>
       </footer>
     </div>
-  );
+  )
 }
