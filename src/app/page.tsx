@@ -110,7 +110,7 @@ export default function Portfolio() {
   }
 
   const contactButtons: ContactButton[] = [
-    { icon: '💼', text: 'LinkedIn', href: 'www.linkedin.com/in/fathiya-salsabila' },
+    { icon: '💼', text: 'LinkedIn', href: 'https://www.linkedin.com/in/fathiya-salsabila' },
     { icon: '💻', text: 'GitHub', href: 'https://github.com/FathiyaS' },
     { icon: '✉️', text: 'Email', href: 'mailto:salsabilafathiya7@gmail.com' }
   ]
