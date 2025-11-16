@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Portfolio() {
   const [typingText, setTypingText] = useState<string>('')
@@ -49,6 +50,7 @@ export default function Portfolio() {
     title: string
     description: string
     tags: string[]
+    mockup: string
   }
 
   const workItems: WorkItem[] = [
@@ -57,21 +59,24 @@ export default function Portfolio() {
       number: '01',
       title: 'Stapple food Recommendation App',
       description: 'Providing recommendations based on user needs and available budget.',
-      tags: ['Kotlin', 'Jetpack Compose', 'Firebase']
+      tags: ['Kotlin', 'Jetpack Compose', 'Firebase'],
+      mockup: '/mockups/grocerist.png'
     },
     {
       id: 'metabolic-health-app',
       number: '02',
       title: 'Metabolic Health Monitoring App',
       description: 'IoT application to monitor blood sugar, uric acid, hemoglobin, and cholesterol levels.',
-      tags: ['Ionic', 'TypeScript', 'Firebase']
+      tags: ['Ionic', 'TypeScript', 'Firebase'],
+      mockup: '/mockups/glusam.png'
     },
     {
       id: 'money-management-app',
       number: '03',
       title: 'Money management app',
       description: 'An app that helps people manage finances with advanced budgeting features',
-      tags: ['Kotlin', 'Jetpack Compose']
+      tags: ['Kotlin', 'Jetpack Compose'],
+      mockup: '/mockups/savvy.png'
     }
   ]
 
@@ -175,17 +180,29 @@ export default function Portfolio() {
           <div className="work-grid">
             {workItems.map((item, index) => (
               <div key={index} className="work-card">
-                <div className="work-number">{item.number}</div>
-                <h3 className="work-title">{item.title}</h3>
-                <p className="work-description">{item.description}</p>
-                <div className="work-tags">
-                  {item.tags.map((tag, tagIndex) => (
-                    <span key={tagIndex} className="work-tag">{tag}</span>
-                  ))}
+                <div className="work-content-left">
+                  <div className="work-number">{item.number}</div>
+                  <h3 className="work-title">{item.title}</h3>
+                  <p className="work-description">{item.description}</p>
+                  <div className="work-tags">
+                    {item.tags.map((tag, tagIndex) => (
+                      <span key={tagIndex} className="work-tag">{tag}</span>
+                    ))}
+                  </div>
+                  <Link href={`/projects/${item.id}`} className="work-link">
+                    View Project →
+                  </Link>
                 </div>
-                <Link href= {`/projects/${item.id}`} className="work-link">
-                  View Project →
-                </Link>
+                <div className="work-mockup-right">
+                    <Image 
+                      src={item.mockup} 
+                      alt={item.title}
+                      width={200}
+                      height={350}
+                      className="mockup-image-small"
+                    />
+                 
+                </div>
               </div>
             ))}
           </div>

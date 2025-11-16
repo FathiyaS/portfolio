@@ -310,23 +310,36 @@ body {
 
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+  margin-top: 3rem;
 }
 
 .work-card {
   background: #fff;
-  padding: 2.5rem;
   border-radius: 20px;
   border: 1px solid #e5e5e5;
   transition: all 0.3s;
-  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 0;
+  align-items: stretch;
+  min-height: 350px;
 }
 
 .work-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
   box-shadow: 0 20px 50px rgba(0,0,0,0.1);
   border-color: #000;
+}
+
+.work-content-left {
+  padding: 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .work-number {
@@ -373,8 +386,39 @@ body {
   display: inline-block;
 }
 
+
 .work-link:hover {
   transform: translateX(5px);
+}
+
+.work-mockup-right {
+  background: #fafafa;
+  border-left: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.mockup-placeholder-small {
+  width: 100%;
+  max-width: 140px;
+  aspect-ratio: 9/16;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%);
+  border-radius: 25px;
+  border: 6px solid #333;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+.mockup-image-small {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 19px;
 }
 
 /* Skills Section */
@@ -556,7 +600,7 @@ body {
   }
 
   .work-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .about-content {
@@ -569,6 +613,35 @@ body {
 
   .section-title {
     font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .work-card-horizontal {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .work-card-horizontal {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  
+  .work-mockup-right {
+    border-left: none;
+    border-top: 1px solid #e5e5e5;
+    padding: 2rem;
+    min-height: 250px;
+  }
+  
+  
+  .work-content-left {
+    padding: 1.5rem;
   }
 }
 
@@ -915,3 +988,5 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/*card*/
