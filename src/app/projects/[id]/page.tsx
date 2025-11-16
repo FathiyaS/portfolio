@@ -46,6 +46,10 @@ const projectsData: { [key: string]: ProjectDetail } = {
         '/projects/grocerist/screen2.png',
         '/projects/grocerist/screen3.png',
         '/projects/grocerist/screen4.png',
+        '/projects/grocerist/screen5.png',
+        '/projects/grocerist/screen6.png',
+        '/projects/grocerist/screen7.png',
+        '/projects/grocerist/screen8.png',
     ]
   },
   'metabolic-health-app': {

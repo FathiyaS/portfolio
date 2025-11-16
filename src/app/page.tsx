@@ -61,18 +61,25 @@ export default function Portfolio() {
       mockup: '/mockups/grocerist.png'
     },
     {
-      id: 'metabolic-health-app',
-      title: 'Metabolic Health Monitoring App',
-      description: 'IoT application to monitor blood sugar, uric acid, hemoglobin, and cholesterol levels.',
-      tags: ['Ionic', 'TypeScript', 'Firebase'],
-      mockup: '/mockups/glusam.png'
-    },
-    {
       id: 'money-management-app',
       title: 'Money management app',
       description: 'An app that helps people manage finances with advanced budgeting features',
       tags: ['Kotlin', 'Jetpack Compose'],
       mockup: '/mockups/savvy.png'
+    },
+    {
+      id: 'life-simulator-app',
+      title: 'Habit simulator app',
+      description: 'an application to simulate the results of habits that are done continuously',
+      tags: ['Kotlin', 'Jetpack Compose'],
+      mockup: '/mockups/savvy.png'
+    },
+    {
+      id: 'metabolic-health-app',
+      title: 'Metabolic Health Monitoring App',
+      description: 'IoT application to monitor blood sugar, uric acid, hemoglobin, and cholesterol levels.',
+      tags: ['Ionic', 'TypeScript', 'Firebase'],
+      mockup: '/mockups/glusam.png'
     }
   ]
 
