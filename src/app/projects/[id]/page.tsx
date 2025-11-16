@@ -54,7 +54,7 @@ const projectsData: { [key: string]: ProjectDetail } = {
   'money-management-app': {
     id: 'money-management-app',
     title: 'Money Management App',
-    year: '2023',
+    year: '2024',
     role: 'UI/UX Designer | Mentee of Android Mobile Development & UI/UX Design (Infinite Learning)',
     description: 'An app that helps people manage finances with advanced budgeting features.',
     fullDescription: 'Aplikasi manajemen keuangan pribadi yang membantu pengguna melacak pengeluaran, membuat budget, dan mencapai tujuan finansial mereka dengan fitur-fitur yang tersedia.',
@@ -82,7 +82,7 @@ const projectsData: { [key: string]: ProjectDetail } = {
   'life-simulator-app': {
     id: 'life-simulator-app',
     title: 'Habit Simulator App',
-    year: '2024',
+    year: '2025',
     role: 'Mobile Developer & UI Designer',
     description: 'A lightweight habit simulation app that demonstrates how small daily actions can produce exponential long-term improvements. It aims to inspire consistency by visualizing the butterfly effect of positive habits',
     fullDescription: 'Aplikasi sederhana yang menyimulasikan dampak jangka panjang dari kebiasaan kecil yang dilakukan secara konsisten. Aplikasi ini menampilkan contoh kebiasaan yang umum dilakukan, lalu memperlihatkan bagaimana progres kecil setiap hari dapat memicu efek domino dan menghasilkan perubahan besar di masa depan. Dibuat untuk mengedukasi dan memotivasi pengguna dalam membangun kebiasaan positif.',
@@ -133,7 +133,6 @@ const projectsData: { [key: string]: ProjectDetail } = {
 
 export default function ProjectDetail() {
   const params = useParams()
-  const router = useRouter()
   const projectId = params.id as string
   const project = projectsData[projectId]
 

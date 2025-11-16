@@ -136,7 +136,7 @@ export default function Portfolio() {
           <div className="intro-left">
             <div className="intro-badge">Welcome 👋</div>
             <h1 className="intro-title">
-              Hi, I'm <span className="highlight">Fathiya Salsabila</span>
+              Hi, I&apos;m <span className="highlight">Fathiya Salsabila</span>
             </h1>
             <p className="intro-subtitle">
               <span className="typing-text">{typingText}</span>
@@ -256,7 +256,7 @@ export default function Portfolio() {
             <div className="about-left">
               <h2 className="section-title">About Me</h2>
               <p className="about-text">
-                Saya adalah seorang web developer yang passionate dalam menciptakan website yang menarik dan fungsional. 
+                Saya adalah seorang Mobile App Developer yang passionate dalam menciptakan aplikasi yang menarik dan fungsional. 
                 Dengan pengalaman dalam berbagai teknologi modern, saya selalu berusaha untuk terus belajar dan berkembang 
                 dalam dunia teknologi.
               </p>
@@ -282,8 +282,8 @@ export default function Portfolio() {
             <div className="about-right">
               <div className="about-card">
                 <div className="about-card-icon">📧</div>
-                <h3>Let's Work Together</h3>
-                <p>I'm available for freelance projects and full-time opportunities.</p>
+                <h3>Let&apos;s Work Together</h3>
+                <p>I&apos;m seeking for full-time opportunities.</p>
               </div>
              {/*<div className="about-card">
                 <div className="about-card-icon">🌍</div>
@@ -299,8 +299,7 @@ export default function Portfolio() {
       <footer className="footer">
         <div className="container-full">
           <div className="footer-content">
-            <p>© 2024 Fathiya Salsabila. All rights reserved.</p>
-            <p>Built with Next.js & TypeScript</p>
+            <p>© 2025 Fathiya Salsabila. All rights reserved.</p>
           </div>
         </div>
       </footer>
