@@ -46,7 +46,6 @@ export default function Portfolio() {
 
   interface WorkItem {
     id: string
-    number: string
     title: string
     description: string
     tags: string[]
@@ -56,7 +55,6 @@ export default function Portfolio() {
   const workItems: WorkItem[] = [
     {
       id: 'stapple-food-app',
-      number: '01',
       title: 'Stapple food Recommendation App',
       description: 'Providing recommendations based on user needs and available budget.',
       tags: ['Kotlin', 'Jetpack Compose', 'Firebase'],
@@ -64,7 +62,6 @@ export default function Portfolio() {
     },
     {
       id: 'metabolic-health-app',
-      number: '02',
       title: 'Metabolic Health Monitoring App',
       description: 'IoT application to monitor blood sugar, uric acid, hemoglobin, and cholesterol levels.',
       tags: ['Ionic', 'TypeScript', 'Firebase'],
@@ -72,7 +69,6 @@ export default function Portfolio() {
     },
     {
       id: 'money-management-app',
-      number: '03',
       title: 'Money management app',
       description: 'An app that helps people manage finances with advanced budgeting features',
       tags: ['Kotlin', 'Jetpack Compose'],
@@ -181,7 +177,6 @@ export default function Portfolio() {
             {workItems.map((item, index) => (
               <div key={index} className="work-card">
                 <div className="work-content-left">
-                  <div className="work-number">{item.number}</div>
                   <h3 className="work-title">{item.title}</h3>
                   <p className="work-description">{item.description}</p>
                   <div className="work-tags">
