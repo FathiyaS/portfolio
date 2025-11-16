@@ -2,6 +2,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 export default function Portfolio() {
   const [typingText, setTypingText] = useState<string>('')
@@ -9,7 +10,7 @@ export default function Portfolio() {
   const [charIndex, setCharIndex] = useState<number>(0)
   const [isDeleting, setIsDeleting] = useState<boolean>(false)
 
-  const texts: string[] = ['Web Developer', 'Designer', 'Problem Solver', 'Creative Thinker']
+  const texts: string[] = ['Mobile Developer', ' UI Designer']
 
   useEffect(() => {
     const typeInterval = setTimeout(() => {
@@ -43,6 +44,7 @@ export default function Portfolio() {
   }
 
   interface WorkItem {
+    id: string
     number: string
     title: string
     description: string
@@ -51,22 +53,25 @@ export default function Portfolio() {
 
   const workItems: WorkItem[] = [
     {
+      id: 'stapple-food-app',
       number: '01',
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce solution dengan payment gateway integration dan real-time inventory management.',
-      tags: ['Next.js', 'TypeScript', 'Stripe']
+      title: 'Stapple food Recommendation App',
+      description: 'Providing recommendations based on user needs and available budget.',
+      tags: ['Kotlin', 'Jetpack Compose', 'Firebase']
     },
     {
+      id: 'metabolic-health-app',
       number: '02',
-      title: 'Task Management App',
-      description: 'Collaborative task management application dengan real-time updates dan team collaboration features.',
-      tags: ['React', 'Node.js', 'MongoDB']
+      title: 'Metabolic Health Monitoring App',
+      description: 'IoT application to monitor blood sugar, uric acid, hemoglobin, and cholesterol levels.',
+      tags: ['Ionic', 'TypeScript', 'Firebase']
     },
     {
+      id: 'money-management-app',
       number: '03',
-      title: 'Portfolio Generator',
-      description: 'Automated portfolio generator tool yang membantu developers membuat portfolio website dengan cepat.',
-      tags: ['Next.js', 'Tailwind', 'MDX']
+      title: 'Money management app',
+      description: 'An app that helps people manage finances with advanced budgeting features',
+      tags: ['Kotlin', 'Jetpack Compose']
     }
   ]
 
@@ -77,16 +82,16 @@ export default function Portfolio() {
 
   const skillCategories: SkillCategory[] = [
     {
-      title: 'Frontend Development',
-      skills: ['HTML5 & CSS3', 'JavaScript ES6+', 'React.js & Next.js', 'TypeScript', 'Tailwind CSS', 'Responsive Design']
+      title: 'Mobile Development',
+      skills: ['Kotlin', 'Jetpack Compose', 'Ionic Framework', 'Angular', 'TypeScript']
     },
     {
       title: 'Backend Development',
-      skills: ['Node.js', 'Express.js', 'MongoDB', 'PostgreSQL', 'REST API', 'GraphQL']
+      skills: ['MySQL', 'Firebase', 'REST API']
     },
     {
       title: 'Tools & Others',
-      skills: ['Git & GitHub', 'VS Code', 'Figma', 'Postman', 'Docker', 'Vercel']
+      skills: ['Git & GitHub', 'VS Code', 'Android Studio' , 'Figma', 'Framer' ,  'Vercel']
     }
   ]
 
@@ -97,9 +102,9 @@ export default function Portfolio() {
   }
 
   const contactButtons: ContactButton[] = [
-    { icon: '💼', text: 'LinkedIn', href: 'https://linkedin.com/in/username' },
-    { icon: '💻', text: 'GitHub', href: 'https://github.com/username' },
-    { icon: '✉️', text: 'Email', href: 'mailto:email@example.com' }
+    { icon: '💼', text: 'LinkedIn', href: 'https://linkedin.com/in/fathiya_Salsabila' },
+    { icon: '💻', text: 'GitHub', href: 'https://github.com/FathiyaS' },
+    { icon: '✉️', text: 'Email', href: 'mailto:salsabilafathiya7@gmail.com' }
   ]
 
   return (
@@ -123,7 +128,7 @@ export default function Portfolio() {
           <div className="intro-left">
             <div className="intro-badge">Welcome 👋</div>
             <h1 className="intro-title">
-              Hi, I'm <span className="highlight">Nama Anda</span>
+              Hi, I'm <span className="highlight">Fathiya Salsabila</span>
             </h1>
             <p className="intro-subtitle">
               <span className="typing-text">{typingText}</span>
@@ -141,7 +146,7 @@ export default function Portfolio() {
           <div className="intro-right">
             <div className="intro-image-container">
               <div className="intro-image">
-                <div className="avatar-large">👨‍💻</div>
+                <div className="avatar-large">👩‍💻</div>
               </div>
               <div className="floating-card card-1">
                 <span className="card-icon">💡</span>
@@ -178,9 +183,9 @@ export default function Portfolio() {
                     <span key={tagIndex} className="work-tag">{tag}</span>
                   ))}
                 </div>
-                <a href="#" className="work-link">
+                <Link href= {`/projects/${item.id}`} className="work-link">
                   View Project →
-                </a>
+                </Link>
               </div>
             ))}
           </div>
@@ -193,20 +198,17 @@ export default function Portfolio() {
           <div className="skills-left">
             <h2 className="section-title">Skills & Expertise</h2>
             <p className="section-description">
-              Saya memiliki pengalaman dalam berbagai teknologi modern untuk membangun aplikasi web yang scalable dan performant.
+              Saya memiliki pengalaman dalam berbagai teknologi modern untuk membangun aplikasi mobile yang scalable dan performant.
             </p>
             <div className="skills-stats">
-              <div className="stat-item">
-                <div className="stat-number">3+</div>
-                <div className="stat-label">Years Experience</div>
-              </div>
+              
               <div className="stat-item">
                 <div className="stat-number">20+</div>
-                <div className="stat-label">Projects Completed</div>
+                <div className="stat-label">Projects & Exercises</div>
               </div>
               <div className="stat-item">
-                <div className="stat-number">10+</div>
-                <div className="stat-label">Happy Clients</div>
+                <div className="stat-number">∞</div>
+                <div className="stat-label">Learning Hours</div>
               </div>
             </div>
           </div>
@@ -264,11 +266,11 @@ export default function Portfolio() {
                 <h3>Let's Work Together</h3>
                 <p>I'm available for freelance projects and full-time opportunities.</p>
               </div>
-              <div className="about-card">
+             {/*<div className="about-card">
                 <div className="about-card-icon">🌍</div>
                 <h3>Based in Indonesia</h3>
                 <p>Working remotely with clients worldwide.</p>
-              </div>
+              </div>*/}
             </div>
           </div>
         </div>
@@ -278,7 +280,7 @@ export default function Portfolio() {
       <footer className="footer">
         <div className="container-full">
           <div className="footer-content">
-            <p>© 2024 Nama Anda. All rights reserved.</p>
+            <p>© 2024 Fathiya Salsabila. All rights reserved.</p>
             <p>Built with Next.js & TypeScript</p>
           </div>
         </div>
