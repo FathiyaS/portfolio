@@ -57,7 +57,7 @@ const projectsData: { [key: string]: ProjectDetail } = {
     year: '2024',
     role: 'UI/UX Designer | Mentee of Android Mobile Development & UI/UX Design (Infinite Learning)',
     description: 'An app that helps people manage finances with advanced budgeting features.',
-    fullDescription: 'Aplikasi manajemen keuangan pribadi yang membantu pengguna melacak pengeluaran, membuat budget, dan mencapai tujuan finansial mereka dengan fitur-fitur yang tersedia.',
+    fullDescription: 'Aplikasi manajemen keuangan pribadi yang membantu pengguna melacak pengeluaran, membuat budget plan, dan mencapai tujuan finansial mereka dengan fitur-fitur yang tersedia.',
     problem: 'Kesulitan dalam melacak pengeluaran dan mengelola budget bulanan secara efektif.',
     solution: 'Membangun aplikasi dengan fitur budget planning, savings dan expenses tracking.',
     technologies: ['Kotlin', 'Jetpack Compose', 'Room Database', 'Material Design 3'],
