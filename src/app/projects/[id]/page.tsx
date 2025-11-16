@@ -52,30 +52,6 @@ const projectsData: { [key: string]: ProjectDetail } = {
         '/projects/grocerist/screen8.png',
     ]
   },
-  'metabolic-health-app': {
-    id: 'metabolic-health-app',
-    title: 'Metabolic Health Monitoring App',
-    year: '2024',
-    role: 'Mobile Developer',
-    description: 'IoT application to monitor blood sugar, uric acid, hemoglobin, and cholesterol levels.',
-    fullDescription: 'Aplikasi IoT yang terintegrasi dengan perangkat medis untuk memantau kesehatan metabolik pengguna secara real-time. Data disinkronisasi ke cloud dan dapat diakses oleh tenaga medis.',
-    problem: 'Pasien dengan kondisi metabolik memerlukan monitoring konstan yang seringkali merepotkan.',
-    solution: 'Mengembangkan aplikasi mobile yang terintegrasi dengan IoT device untuk monitoring otomatis dan real-time alert.',
-    technologies: ['Ionic Framework', 'Angular', 'TypeScript', 'Firebase', 'IoT Integration'],
-    features: [
-      'Real-time health data monitoring',
-      'Automatic data sync with cloud',
-      'Health trend analytics',
-      'Doctor dashboard integration',
-      'Emergency alert system'
-    ],
-    github: 'https://github.com/Glusambinchole/glusambinchole',
-    images: [
-        '/projects/glusam/screen1.png',
-        '/projects/glusam/screen2.png',
-        '/projects/glusam/screen3.png'
-    ]
-  },
   'money-management-app': {
     id: 'money-management-app',
     title: 'Money Management App',
@@ -100,8 +76,66 @@ const projectsData: { [key: string]: ProjectDetail } = {
         '/projects/savvy/screen3.png',
         '/projects/savvy/screen4.png',
         '/projects/savvy/screen5.png',
+        '/projects/savvy/screen6.png',
+        '/projects/savvy/screen7.png',
+        '/projects/savvy/screen8.png',
+        '/projects/savvy/screen9.png',
     ]
-  }
+  },
+  'life-simulator-app': {
+    id: 'life-simulator-app',
+    title: 'Habit Simulator App',
+    year: '2025',
+    role: 'Mobile Developer & UI Designer',
+    description: 'An app that helps people manage finances with advanced budgeting features.',
+    fullDescription: 'Aplikasi manajemen keuangan pribadi yang membantu pengguna melacak pengeluaran, membuat budget, dan mencapai tujuan finansial mereka dengan fitur-fitur canggih.',
+    problem: 'Kesulitan dalam melacak pengeluaran dan mengelola budget bulanan secara efektif.',
+    solution: 'Membangun aplikasi dengan fitur automatic categorization, budget planning, dan financial goal tracking.',
+    technologies: ['Kotlin', 'Jetpack Compose', 'Room Database', 'Material Design 3'],
+    features: [
+      'Automatic expense categorization',
+      'Budget planning & tracking',
+      'Financial goal setting',
+      'Expense analytics & reports',
+      'Recurring transaction management'
+    ],
+    github: 'https://github.com/indradprasetya/SavvySwatantra',
+    images: [
+        '/projects/whatif/screen1.png',
+        '/projects/whatif/screen2.png',
+        '/projects/whatif/screen3.png',
+    ]
+  },
+  'metabolic-health-app': {
+    id: 'metabolic-health-app',
+    title: 'Metabolic Health Monitoring App',
+    year: '2024',
+    role: 'Mobile Developer',
+    description: 'IoT application to monitor blood sugar, uric acid, hemoglobin, and cholesterol levels.',
+    fullDescription: 'Aplikasi IoT yang terintegrasi dengan perangkat medis untuk memantau kesehatan metabolik pengguna secara real-time. Data disinkronisasi ke cloud dan dapat diakses oleh tenaga medis.',
+    problem: 'Pasien dengan kondisi metabolik memerlukan monitoring konstan yang seringkali merepotkan.',
+    solution: 'Mengembangkan aplikasi mobile yang terintegrasi dengan IoT device untuk monitoring otomatis dan real-time alert.',
+    technologies: ['Ionic Framework', 'Angular', 'TypeScript', 'Firebase', 'IoT Integration'],
+    features: [
+      'Real-time health data monitoring',
+      'Automatic data sync with cloud',
+      'Health trend analytics',
+      'Doctor dashboard integration',
+      'Emergency alert system'
+    ],
+    github: 'https://github.com/Glusambinchole/glusambinchole',
+    images: [
+        '/projects/glusam/screen1.png',
+        '/projects/glusam/screen2.png',
+        '/projects/glusam/screen3.png',
+        '/projects/glusam/screen4.png',
+        '/projects/glusam/screen5.png',
+        '/projects/glusam/screen6.png',
+        '/projects/glusam/screen7.png',
+
+    ]
+  },
+  
 }
 
 export default function ProjectDetail() {

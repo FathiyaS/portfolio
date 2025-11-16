@@ -72,7 +72,7 @@ export default function Portfolio() {
       title: 'Habit simulator app',
       description: 'an application to simulate the results of habits that are done continuously',
       tags: ['Kotlin', 'Jetpack Compose'],
-      mockup: '/mockups/savvy.png'
+      mockup: '/mockups/whatif.png'
     },
     {
       id: 'metabolic-health-app',
